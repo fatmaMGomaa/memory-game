@@ -116,3 +116,6 @@ h1 {
 .score-panel .restart {
     cursor: pointer;
 }
+.score-panel .timer-div {
+    width: 15%;
+}

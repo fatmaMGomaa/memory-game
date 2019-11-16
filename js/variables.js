@@ -24,6 +24,8 @@ let movements = 0;
 
 let stars = 5;
 
+let changeTime;
+
 let allMatchedCards = [];
 
 const deckUl = document.querySelector(".deck");

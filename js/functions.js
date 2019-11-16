@@ -13,9 +13,20 @@ function shuffle(array) {
     return array;
 }
 
+
 function resetGame() {
+    /* this is another solution to restart the game
     location.reload();
+    */ 
+    clearInterval(changeTime);
+    allMatchedCards = [];
+    openedCards = [];
+    movements = 0;
+    stars = 5;
+    moveSpan.textContent = movements;
+    generateCards(shuffle(cardsArray));
 }
+
 
 function generateCards(array) {
     let cardsHtml = "";
@@ -23,25 +34,34 @@ function generateCards(array) {
         cardsHtml += `<li class="card" id=${card.cardId}><i class="${card.cardClass}"></i></li>\n`;
     })
     deckUl.innerHTML = cardsHtml;
-    timer()
+    moveSpan.textContent = movements;
+    timer();
+    setRateStars(stars);
 }
+
 
 function countMoves() {
     movements += 1;
     moveSpan.textContent = movements;
-    movements % 16 === 0 ? setRateStars() : movements;
-}
-
-function setRateStars() {
-    if (stars > 1){
+    if (movements % 16 === 0) {
         stars -= 1;
-        starsUl.lastElementChild.remove();
+        setRateStars(stars);
     }
 }
+
+
+function setRateStars(stars) {
+    let starsHtml = "";
+    for (let i=1 ; i<=stars ; i++){
+        starsHtml += `<li><i class="fa fa-star"></i></li>\n`
+    }
+    starsUl.innerHTML = starsHtml;
+}
+
 function timer() {
     let minutes = 0;
     let seconds = 0;
-    const changeTime = setInterval(() => {
+    changeTime = setInterval(() => {
         seconds += 1;
         if (seconds % 60 === 0) {
             minutes += 1;
@@ -55,6 +75,7 @@ function timer() {
     }, 1000)
 }
 
+
 function openCard(e) {
     const cardClasses = e.target.classList;
     if (cardClasses.contains("card") && allMatchedCards.length < 16) {
@@ -64,6 +85,7 @@ function openCard(e) {
         isMatched()
     }
 }
+
 
 function closeCard() {
     // use setTimeout to let the user see the two cards before closing them
@@ -75,6 +97,7 @@ function closeCard() {
     }, 500);
 }
 
+
 function handleMatchedCards() {
     openedCards.forEach((card) => {
         card.classList.remove("open", "show");
@@ -83,6 +106,7 @@ function handleMatchedCards() {
     allMatchedCards = [...allMatchedCards, ...openedCards];
     openedCards = [];
 }
+
 
 function isMatched() {
     // I made nested condition here and didn't use && operator because I didn't want to run else block in case the length is lower then 2
