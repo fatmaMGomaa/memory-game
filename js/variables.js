@@ -17,8 +17,21 @@ const cardsArray = [
     {cardId: "second-bomb", cardClass: "fa fa-bomb"}
 ];
 
+
 let openedCards = [];
+
 let movements = 0;
+
+let stars = 5;
+
 let allMatchedCards = [];
 
 const deckUl = document.querySelector(".deck");
+
+const moveSpan = document.querySelector(".moves");
+
+const starsUl = document.querySelector(".stars");
+
+const timerSpan = document.querySelector(".timer");
+
+const resetDiv = document.querySelector(".restart");

@@ -81,13 +81,21 @@ h1 {
     font-size: 33px;
 }
 
+.win,
+.loss {
+    display: none;
+}
+
 /*
  * Styles for the Score Panel
  */
 
 .score-panel {
+    display: flex;
+    justify-content: space-around;
     text-align: left;
-    width: 345px;
+    width: 50%;
+    margin: 0 auto;
     margin-bottom: 10px;
 }
 
@@ -102,8 +110,9 @@ h1 {
     list-style: none;
     display: inline-block;
 }
-
+.score-panel .stars li i{
+    color:#d4af37;
+}
 .score-panel .restart {
-    float: right;
     cursor: pointer;
 }

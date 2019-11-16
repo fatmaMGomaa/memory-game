@@ -4,12 +4,15 @@
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
-let shuffledArray = shuffle(cardsArray);
 
-generateCards(shuffledArray);
+generateCards(shuffle(cardsArray));
 
 deckUl.addEventListener("click", (e) => {
     openCard(e)   
+})
+
+resetDiv.addEventListener("click", (e) => {
+    resetGame()
 })
 
 
