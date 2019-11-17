@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matching Game</title>
     <meta name="description" content="">
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
+    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Rancho&effect=fire-animation">
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
@@ -34,11 +36,26 @@
         </section>
 
         <ul class="deck"></ul>
+        <!-- the win section is hidden with css and display when the player win the game -->
         <section class="win">
-            <h1>Congratulations Winner</h1>
-        </section>
-        <section class="loss">
-            <h1>Game Over</h1>
+            <i class="fa fa-close close-modal"></i>
+            <h1 class="font-effect-fire-animation">Congratulations Winner</h1>
+            <section class="win-panel">
+                <ul class="win-stars">
+                    
+                </ul>
+            
+                <div>
+                    <span class="win-moves"></span> Moves
+                </div>
+            
+                <div class="win-timer-div">
+                    <span class="win-timer"> 00:00</span>
+                </div>
+            </section>
+            <p>Do You Want To Play Again?</p>
+            <button type="button" class="play-again">play</button>
+            <button type="button" class="close-modal">close</button>
         </section>
     </div>
     <script src="js/variables.js"></script>

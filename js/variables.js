@@ -1,3 +1,5 @@
+// all global variables that I used in the app
+
 const cardsArray = [
     {cardId: "first-diamond", cardClass: "fa fa-diamond"},
     {cardId: "second-diamond", cardClass: "fa fa-diamond"},
@@ -37,3 +39,5 @@ const starsUl = document.querySelector(".stars");
 const timerSpan = document.querySelector(".timer");
 
 const resetDiv = document.querySelector(".restart");
+
+const winSection = document.querySelector(".win");

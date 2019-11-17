@@ -42,7 +42,6 @@ h1 {
     min-height: 680px;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
     padding: 32px;
-    border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
     display: flex;
     flex-wrap: wrap;
@@ -50,6 +49,19 @@ h1 {
     align-items: center;
     margin: 0 0 3em;
 }
+
+
+.deck,
+.win {
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.deck .card,
+.win button {
+    border-radius: 8px;
+}
+
 
 .deck .card {
     height: 125px;
@@ -81,16 +93,12 @@ h1 {
     font-size: 33px;
 }
 
-.win,
-.loss {
-    display: none;
-}
-
 /*
- * Styles for the Score Panel
+ * Styles for the Score Panel and win panel
  */
 
-.score-panel {
+.score-panel,
+.win-panel {
     display: flex;
     justify-content: space-around;
     text-align: left;
@@ -99,18 +107,21 @@ h1 {
     margin-bottom: 10px;
 }
 
-.score-panel .stars {
+.score-panel .stars,
+.win-panel  .win-stars{
     margin: 0;
     padding: 0;
     display: inline-block;
     margin: 0 5px 0 0;
 }
 
-.score-panel .stars li {
+.score-panel .stars li,
+.win-panel .win-stars li {
     list-style: none;
     display: inline-block;
 }
-.score-panel .stars li i{
+.score-panel .stars li i,
+.win-panel .win-stars li i{
     color:#d4af37;
 }
 .score-panel .restart {
@@ -118,4 +129,100 @@ h1 {
 }
 .score-panel .timer-div {
     width: 15%;
+}
+
+
+.win {
+    display: none;
+    width: 70%;
+    margin: 0 auto;
+    padding: 15px;
+    background-color: thistle;
+    position: absolute;
+    top: 30%;
+    text-align: center;
+}
+
+.win h1 {
+    font-size: 300%;
+}
+
+.win button {
+    padding: 8px;
+    margin: 10px;
+    background-color: #d4af37;
+    font-size: 120%;
+    border: none;
+}
+.fa-close{
+    float: right;
+}
+
+/*
+*styles for different sizes of screens
+*/
+@media only screen and (max-width: 768px) {
+    .win-panel{
+        width: 70%;
+    }
+}
+@media only screen and (max-width: 686px) {
+    .deck {
+        width: 90%;
+        min-height: auto;
+    }
+
+
+    .deck,
+    .win {
+        box-shadow: 6px 7px 10px 0 rgba(46, 61, 73, 0.5);
+    }
+
+
+    .deck .card {
+        height: 80px;
+        width: 80px;
+        margin-bottom: 10px;
+    }
+
+
+    .score-panel,
+    .win-panel {
+        width: 100%;
+        font-size: 90%;
+    }
+
+
+    .win {
+        width: 95%;
+        top: 18%;
+    }
+
+
+    .win h1 {
+        font-size: 230%;
+    }
+}
+@media only screen and (max-width: 454px) {
+    .deck .card {
+        height: 70px;
+        width: 70px;
+    }
+}
+@media only screen and (max-width: 404px) {
+    .deck .card {
+        height: 60px;
+        width: 60px;
+    }
+
+
+    .win h1 {
+        font-size: 200%;
+    }
+
+
+    .score-panel,
+    .win-panel {
+        font-size: 80%;
+    }
 }
