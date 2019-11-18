@@ -93,6 +93,9 @@ h1 {
     font-size: 33px;
 }
 
+.deck .card.wrong {
+    background: #e65138;
+}
 /*
  * Styles for the Score Panel and win panel
  */
@@ -137,7 +140,7 @@ h1 {
     width: 70%;
     margin: 0 auto;
     padding: 15px;
-    background-color: thistle;
+    background-color: white;
     position: absolute;
     top: 30%;
     text-align: center;
@@ -149,8 +152,10 @@ h1 {
 
 .win button {
     padding: 8px;
+    width: 150px;
     margin: 10px;
-    background-color: #d4af37;
+    background-color: #02ccba;
+    color: white;
     font-size: 120%;
     border: none;
 }
@@ -201,6 +206,11 @@ h1 {
 
     .win h1 {
         font-size: 230%;
+    }
+
+
+    .win button {
+        width: 100px;
     }
 }
 @media only screen and (max-width: 454px) {

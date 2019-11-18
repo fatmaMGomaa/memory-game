@@ -29,7 +29,7 @@ function generateCards(array) {
 // this function to show the symbol of the card and increases movements by 1
 function openCard(e) {
     const cardClasses = e.target.classList;
-    if (cardClasses.contains("card") && allMatchedCards.length < 16) {
+    if (cardClasses.contains("card") && allMatchedCards.length < 16 && !cardClasses.contains("match")) {
         cardClasses.add("open", "show");
         countMoves();
         openedCards.push(e.target);
@@ -43,7 +43,7 @@ function closeCard() {
     // use setTimeout to let the user see the two cards before closing them
     setTimeout(() => {
         openedCards.forEach((card) => {
-            card.classList.remove("open", "show");
+            card.classList.remove("open", "show", "animated", "shake", "wrong");
         })
         openedCards = [];
     }, 500);
@@ -109,7 +109,7 @@ function resetGame() {
     openedCards = [];
     movements = 0;
     stars = 5;
-    moveSpan.textContent = movements;
+    timerSpan.textContent = "00:00"
     generateCards(shuffle(cardsArray));
     savePlayerState()
 }
@@ -118,7 +118,7 @@ function resetGame() {
 function handleMatchedCards() {
     openedCards.forEach((card) => {
         card.classList.remove("open", "show");
-        card.classList.add("match");
+        card.classList.add("match", "animated", "rubberBand");
     })
     allMatchedCards = [...allMatchedCards, ...openedCards];
     openedCards = [];
@@ -131,6 +131,9 @@ function isMatched() {
         if (openedCards[0]["id"] !== openedCards[1]["id"] && openedCards[0]["id"].split("-")[1] === openedCards[1]["id"].split("-")[1]) {
             handleMatchedCards()
         } else {
+            openedCards.forEach((card) => {
+                card.classList.add("animated", "shake", "wrong");
+            })
             closeCard()
         }
     }
