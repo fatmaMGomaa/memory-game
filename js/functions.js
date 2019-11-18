@@ -54,7 +54,7 @@ function countMoves() {
     movements += 1;
     saveToLocalStorage("moves", movements);
     moveSpan.textContent = movements;
-    if (movements % 16 === 0) {
+    if (movements % 16 === 0 && stars > 1) {
         stars -= 1;
         setRateStars(stars, starsUl);
     }
