@@ -143,12 +143,13 @@ function isMatched() {
 function handleWin() {
     if (allMatchedCards.length === 16) {
         clearInterval(changeTime);
-        winSection.style.display = "block";
         document.querySelector(".win-moves").textContent = getLocalStorageItem("moves");
         document.querySelector(".win-timer").textContent = `${getLocalStorageItem("gameTime")} duration`;
         const winRate = document.querySelector(".win-stars");
         setRateStars(stars, winRate);
         localStorage.clear();
+        winSection.classList.add("animated", "fadeInDown");
+        winSection.style.display = "block";
     }
 }
 
