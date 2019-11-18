@@ -29,7 +29,7 @@ function generateCards(array) {
 // this function to show the symbol of the card and increases movements by 1
 function openCard(e) {
     const cardClasses = e.target.classList;
-    if (cardClasses.contains("card") && allMatchedCards.length < 16 && !cardClasses.contains("match")) {
+    if (cardClasses.contains("card") && allMatchedCards.length < 16 && !cardClasses.contains("match") && !cardClasses.contains("open")) {
         cardClasses.add("open", "show");
         countMoves();
         openedCards.push(e.target);
